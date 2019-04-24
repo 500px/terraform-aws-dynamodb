@@ -48,7 +48,7 @@ resource "null_resource" "local_secondary_index_names" {
 
 resource "aws_dynamodb_table" "default" {
   count            = "${var.enabled == "true" ? 1 : 0 }"
-  name             = "${module.dynamodb_label.id}"
+  name             = "${var.simple_name == "true" ? var.name : module.dynamodb_label.id}"
   billing_mode     = "${var.billing_mode}"
   read_capacity    = "${var.autoscale_min_read_capacity}"
   write_capacity   = "${var.autoscale_min_write_capacity}"

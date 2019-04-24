@@ -18,6 +18,11 @@ variable "name" {
   description = "Name  (e.g. `app` or `cluster`)"
 }
 
+variable "simple_name" {
+  description = "Set to true to use name without stage and enviroment components"
+  default     = "false"
+}
+
 variable "delimiter" {
   type        = "string"
   default     = "-"
