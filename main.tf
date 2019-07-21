@@ -26,6 +26,9 @@ locals {
   from_index = "${length(var.range_key) > 0 ? 0 : 1}"
 
   attributes_final = "${slice(local.attributes, local.from_index, length(local.attributes))}"
+
+  default_ignore_changes = ["read_capacity", "write_capacity"]
+  ignore_changes = "${var.ignore_global_secondary_index_changes == "true" ? concat(default_ignore_changes, ["global_secondary_index"]) : default_ignore_changes }"
 }
 
 resource "null_resource" "global_secondary_index_names" {

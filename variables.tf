@@ -148,6 +148,11 @@ variable "global_secondary_index_map" {
   description = "Additional global secondary indexes in the form of a list of mapped values"
 }
 
+variable "ignore_global_secondary_index_changes" {
+  default = "false"
+  description = "Ignore changes on GSI to avoid recreation"
+}
+
 variable "local_secondary_index_map" {
   type        = "list"
   default     = []
