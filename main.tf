@@ -66,7 +66,7 @@ resource "aws_dynamodb_table" "default" {
   }
 
   lifecycle {
-    ignore_changes = ["read_capacity", "write_capacity"]
+    ignore_changes = ["read_capacity", "write_capacity", "global_secondary_index"]
   }
 
   attribute              = ["${local.attributes_final}"]
